@@ -1,12 +1,6 @@
 <?php
-
-
-$conexion = mysqli_connect("localhost", "root", "", "lol"); 
-
-if(mysqli_connect_errno()){
-    echo "Failed to connect to MYSQL: " . mysqli_connect_error();
-    exit(); 
-}
+declare(strict_types=1);
+include_once("database.php");
 
 /* Crea el archivo 001campeones.php donde listes todos los campeones del LOL que has metido 
 en tu base de datos. Acuérdate que para ello deberás hacer una conexión con la base de datos 
