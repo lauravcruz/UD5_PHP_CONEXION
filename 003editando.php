@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 include_once("database.php"); ?>
 <!DOCTYPE html>
@@ -9,11 +10,13 @@ include_once("database.php"); ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/custom.css" />
     <script defer src="js/bootstrap.bundle.js"></script>
     <title>003 Editando</title>
 </head>
 
 <body>
+   
     <?php
     /*Al pinchar en editar, el usuario será redirigido al archivo 003editando.php donde mostrará un 
     formulario con los campos rellenos por los datos del campeón seleccionado. Al darle al botón 
@@ -57,42 +60,56 @@ include_once("database.php"); ?>
     }
     ?>
 
-    <form name="edit" id="edit" method="POST">
+    <div class="backgroundEdit">
+        <div class="p-5">
+            <form class="row g-3 p-3" validate name="edit" id="edit" method="POST">
+                <div class="col-md-4 text-center">
+                    <!--El valor de cada input es el que está en la base de datos-->
+                    <input type="text" class="form-control" name="id" id="id" value="<?= $id ?>" hidden>
+                    <label for="name" class="form-label">Nombre: </label>
+                    <input type="text" class="form-control" name="name" id="name" value="<?= $champ["name"]; ?>"><br>
+                </div>
+                <div class="col-md-4 text-center">
+                    <label for="rol" class="form-label">Rol: </label>
+                    <!--Para los select, marcamos como selected la opción registrada-->
+                    <select name="rol" id="rol" class="form-select">
+                        <option <?php if ($champ["rol"] == "Asesino")
+                                    echo "selected"; ?>>Asesino</option>
+                        <option>Luchador</option>
+                        <option <?php if ($champ["rol"] == "Mago")
+                                    echo "selected"; ?>>Mago</option>
+                        <option <?php if ($champ["rol"] == "Tirador")
+                                    echo "selected"; ?>>Tirador</option>
+                        <option <?php if ($champ["rol"] == "Apoyo")
+                                    echo "selected"; ?>>Apoyo</option>
+                        <option <?php if ($champ["rol"] == "Tanque")
+                                    echo "selected";
+                                ?>>Tanque</option>
+                    </select>
+                </div>
+                <div class="col-md-4 text-center">
+                    <label for="difficulty" class="form-label">Dificultad: </label>
+                    <select id="difficulty" name="difficulty" class="form-select">
+                        <option <?php if ($champ["difficulty"] == "Baja")
+                                    echo "selected = 'selected'";; ?>>Baja</option>
+                        <option <?php if ($champ["difficulty"] == "Moderada")
+                                    echo "selected = 'selected'";; ?>>Moderada</option>
+                        <option <?php if ($champ["difficulty"] == "Alta")
+                                    echo "selected = 'selected'";; ?>>Alta</option>
+                    </select><br>
+                </div>
+                <div class="col-12">
+                    <label for="description" class="form-label">Descripción: </label>
+                    <textarea class="form-control" name="description" rows=6 id="description"><?= $champ["description"]; ?></textarea>
+                </div>
 
-        <!--El valor de cada input es el que está en la base de datos-->
-        <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
-        <label for="name">Nombre: </label>
-        <input type="text" name="name" id="name" value="<?= $champ["name"]; ?>"><br>
-        <label for="rol">Rol: </label>
-        <!--Para los select, marcamos como selected la opción registrada-->
-        <select name="rol" id="rol">
-            <option <?php if ($champ["rol"] == "Asesino")
-                        echo "selected"; ?>>Asesino</option>
-            <option>Luchador</option>
-            <option <?php if ($champ["rol"] == "Mago")
-                        echo "selected"; ?>>Mago</option>
-            <option <?php if ($champ["rol"] == "Tirador")
-                        echo "selected"; ?>>Tirador</option>
-            <option <?php if ($champ["rol"] == "Apoyo")
-                        echo "selected"; ?>>Apoyo</option>
-            <option <?php if ($champ["rol"] == "Tanque")
-                        echo "selected";
-                    ?>>Tanque</option>
-        </select>
+                <div class="col-12 text-center">
+                    <button type="submit" class = "btn bg-primary" name="submit">Enviar</button>
+                </div>
+            </form>
 
-        <label for="difficulty">Dificultad: </label>
-        <select id="difficulty" name="difficulty">
-            <option <?php if ($champ["difficulty"] == "Baja")
-                        echo "selected = 'selected'";; ?>>Baja</option>
-            <option <?php if ($champ["difficulty"] == "Moderada")
-                        echo "selected = 'selected'";; ?>>Moderada</option>
-            <option <?php if ($champ["difficulty"] == "Alta")
-                        echo "selected = 'selected'";; ?>>Alta</option>
-        </select><br>
-        <label for="description">Descripción: </label>
-        <input type="text" name="description" id="description" value="<?= $champ["description"]; ?>"><br>
-        <button type="submit" name="submit">Enviar</button>
-    </form>    
+        </div>
+    </div>
 </body>
 
 </html>

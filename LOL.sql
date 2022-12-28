@@ -5,7 +5,7 @@ USE lol;
 CREATE TABLE champ(
 	id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(100) NOT NULL,
-    rol ENUM("Asesinos", "Luchadores", "Magos", "Tiradores", "Apoyos", "Tanques") NOT NULL,
+    rol ENUM("Asesino", "Luchador", "Mago", "Tirador", "Apoyo", "Tanque") NOT NULL,
     difficulty ENUM("Baja", "Moderada", "Alta") NOT NULL, 
     `description` TEXT NOT NULL
 );

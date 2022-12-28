@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+body {
+  font-family: "Righteous", cursive;
+  font-size: 1.5rem;
+}
+
+.container div {
+  flex: 1 0 30%;
+}
+.card-text {
+  font-size: 0.8rem;
+  text-align: justify;
+}
+
+.backgroundEdit {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/backgroundEdit.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+form {
+  border: 2px #c49234 solid;
+  background-color: rgba(255, 255, 255, 0.253);
+  color: #c49234;
+}
+
+.btn {
+  font-size: 1.5rem;
+  margin: 1rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: #262a53;
+}
+
+.delete {
+  background-color: rgb(112, 2, 2);
+  color: white;
+}
+
+.delete::after {
+  background-color: white;
+}
+
+.delete:hover {
+  color: rgb(112, 2, 2);
+}
+
+.btn:hover {
+  color: #c49234;
+}
+
+.btn::after {
+  content: "";
+  background: #262a53;
+  position: absolute;
+  z-index: -1;
+  display: block;
+  transition: all 0.3s ease;
+  left: -30%;
+  right: -30%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+}
+.btn:hover::after {
+  transition: all 0.3s ease-out;
+  transform: skewX(-45deg) scale(1, 1);
+}

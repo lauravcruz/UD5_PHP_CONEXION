@@ -1,5 +1,2 @@
 "use strict"; 
 
-function confirmDelete(){
-    
-}

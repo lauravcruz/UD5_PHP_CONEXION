@@ -15,40 +15,55 @@ esos botones hará la correspondiente función dependiendo del id del campeón s
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css" />
     <script defer src="js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/custom.css" />
     <title>002 Campeones</title>
 </head>
 
 <body>
-    <ul>
-        <?php
 
+    <div class="d-flex flex-row flex-wrap container gap-5 my-5">
+        <?php
         $consulta = "SELECT * FROM `champ`";
 
         $champs = mysqli_query($conexion, $consulta);
         if ($champs) {
             foreach ($champs as $champ) {
-                echo "<li>$champ[name]<ul>
-                <li>Rol: $champ[rol]</li>
-                <li>Dificultad: $champ[difficulty]</li>
-                <li>Descripción: $champ[description]</li></ul>";
+                echo "<div class='card'>
+                <h5 class='card-title text-center my-2'>$champ[name]</h5>
+                <h6 class='card-subtitle text-center'>$champ[rol] $champ[difficulty]</h6>
+                <p class='card-text p-3'>$champ[description]</p>
 
-                //Pasamos por GET el id: 
-                echo "<a class = 'btn btn-info' href='003editando.php?id=$champ[id]'>Editar</a>";
-                echo "<a
-                type='button'
-                class='nav-link text-decoration-none'
-                data-bs-toggle='modal'
-                data-bs-target='#modalDelete'
-                data-bs-whatever='@mdo'
+                <a class = 'btn btn-info' href='003editando.php?id=$champ[id]'>Editar</a>
+                <a
+                type='button' class = 'btn bg-danger'
+                class='text-decoration-none'
+                data-bs-toggle='modal' data-bs-target='#modalDelete'
               >
                 Eliminar
-              </a>";
+              </a>
+
+              <div class='modal fade' id='modalDelete' tabindex='-1' role='dialog' aria-labelledby='modalDelete' aria-hidden='true'>
+                <div class='modal-dialog' role='document'>
+                <div class='modal-content'>
+
+                <div class='modal-body text-center'>
+                    ¿Está seguro de que desea borrar a $champ[name]>
+                </div>
+                <div class='modal-footer'>
+                    <button type='button'  class='btn' data-bs-dismiss='modal'>Cancelar</button>
+                    <a class='btn' href = 'delete.php?id=$champ[id]'>Aceptar</a>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>";
             }
         }
         ?>
-    </ul>
+    </div>
+
 
 </body>
 
