@@ -22,16 +22,15 @@ esos botones hará la correspondiente función dependiendo del id del campeón s
 </head>
 
 <body>
-
-    <div class="d-flex flex-row flex-wrap container gap-5 my-5">
+    <div class="d-flex flex-row flex-wrap container gap-5 py-5">
         <?php
         $consulta = "SELECT * FROM `champ`";
 
         $champs = mysqli_query($conexion, $consulta);
         if ($champs) {
             foreach ($champs as $champ) {
-                echo "<div class='card'>
-                <h5 class='card-title text-center my-2'>$champ[name]</h5>
+                echo "<div class='card bg-secondary text-white'>
+                <h5 class='card-title text-center text-primary my-2'>$champ[name]</h5>
                 <h6 class='card-subtitle text-center'>$champ[rol] $champ[difficulty]</h6>
                 <p class='card-text p-3'>$champ[description]</p>
 
@@ -63,8 +62,6 @@ esos botones hará la correspondiente función dependiendo del id del campeón s
         }
         ?>
     </div>
-
-
 </body>
 
 </html>
