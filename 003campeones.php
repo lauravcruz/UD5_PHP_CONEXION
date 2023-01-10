@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 include_once("database.php");
 
@@ -7,21 +8,12 @@ muestre como una tabla con las columnas de la propia tabla de la base de datos, 
 nombre, rol, dificultad, descripción.*/
 
 $consulta = "SELECT * FROM champ";
+$champs = mysqli_query($conexion, $consulta);
 
-$champs = mysqli_query($conexion, $consulta); 
-
-if($champs){
-    foreach($champs as $champ){
-        echo "<li>$champ[id] $champ[name]<ul>
-        <li>Rol: $champ[rol]</li>
-        <li>Dificultad: $champ[difficulty]</li>
-        <li>Descripción: $champ[description]</li></ul><br>";
-    }
-    echo "</ul>"; 
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,11 +25,35 @@ if($champs){
 </head>
 
 <body>
-    <table>
-        <thead>
-            <tr></tr>
-        </thead>
-    </table>
-
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr class="text-center">
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Rol</th>
+                        <th>Dificultad</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($champs) {
+                        foreach ($champs as $champ) {
+                            echo "<tr>
+                    <td>$champ[id]</td> 
+                    <td>$champ[name]</td>
+                    <td>$champ[rol]</td>
+                    <td>$champ[difficulty]</td>
+                    <td>$champ[description]</td>
+                    </tr>";
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 </body>

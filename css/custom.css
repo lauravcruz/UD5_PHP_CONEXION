@@ -9,7 +9,7 @@ body {
   flex: 1 0 30%;
 }
 .card-text {
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-align: justify;
 }
 
@@ -71,3 +71,6 @@ form {
   transform: skewX(-45deg) scale(1, 1);
 }
 
+td{
+  font-size: 1rem; 
+}
