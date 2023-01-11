@@ -22,7 +22,7 @@ esos botones hará la correspondiente función dependiendo del id del campeón s
 </head>
 
 <body>
-    <div class="d-flex flex-row flex-wrap container gap-5 py-5">
+    <div class="d-flex flex-row flex-wrap container gap-5 py-3">
         <?php
         $consulta = "SELECT * FROM `champ`";
 
@@ -38,17 +38,16 @@ esos botones hará la correspondiente función dependiendo del id del campeón s
                 <a
                 type='button' class = 'btn bg-danger'
                 class='text-decoration-none'
-                data-bs-toggle='modal' data-bs-target='#modalDelete'
-              >
+                data-bs-toggle='modal' data-bs-target='#modalDelete$champ[id]'>
                 Eliminar
               </a>
 
-              <div class='modal fade' id='modalDelete' tabindex='-1' role='dialog' aria-labelledby='modalDelete' aria-hidden='true'>
+              <div class='modal fade' id='modalDelete$champ[id]' tabindex='-1' role='dialog' aria-labelledby='modalDelete' aria-hidden='true'>
                 <div class='modal-dialog' role='document'>
                 <div class='modal-content'>
 
-                <div class='modal-body text-center'>
-                    ¿Está seguro de que desea borrar a $champ[name]>
+                <div class='modal-body text-center text-primary'>
+                    ¿Está seguro de que desea borrar a $champ[name]?
                 </div>
                 <div class='modal-footer'>
                     <button type='button'  class='btn' data-bs-dismiss='modal'>Cancelar</button>
