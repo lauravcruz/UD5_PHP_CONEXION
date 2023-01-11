@@ -74,3 +74,7 @@ form {
 td{
   font-size: 1rem; 
 }
+
+.error{
+  box-shadow: red 0px 0px 6px 0px;
+}
