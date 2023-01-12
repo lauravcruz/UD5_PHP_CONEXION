@@ -2,28 +2,33 @@
 
 declare(strict_types=1);
 
-$conexionPDO = new PDO('mysql:host=localhost; dbname=lol', 'root', '');
-
+include("conexionPDO.php");
+//Comprobamos que no estén los campos vacíos: 
 try {
-    $conexionPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //Comprobamos que no estén los campos vacíos: 
+    if (isset($_POST["username"])) {
+        $user = $_POST["username"];
+        $pass = $_POST["password"];
+        $sql = "SELECT * FROM user WHERE username = ?";
+        $select = $conexionPDO->prepare($sql);
+        $select->bindParam(1, $user);
+        $select->execute();
 
-    $usu = $_POST["login"] ?? "";
+        $usuario = $select->fetch();
 
-    $sql = "SELECT * FROM user WHERE username = ?";
-    $select = $conexionPDO->prepare($sql);
-    $select->execute([$usu]);
-
-    $usuario = $select->fetch();
-
-    if ($usuario && password_verify($_POST["password"], $usuario['password'])) {
-        echo "<h2 class = 'text-center align-center'>Bienvenid@ $usuario[name]</h2>";
-    } else {
-        echo "<h2>Contraseña incorrecta</h2>";
-    };
+        if ($usuario) {
+            if (password_verify($pass, $usuario['password'])) {
+                echo "<h2 class = 'text-center align-center'>Bienvenid@ $usuario[name]</h2>";
+            } else {
+                echo "<h2>Contraseña incorrecta</h2>";
+            };
+        } else {
+            echo "<h2 class = 'text-center align-center'></h2>El usuario $user no existe</h2>";
+        }
+    }
 } catch (PDOException $e) {
     echo 'Falló la conexión: ' . $e->getMessage();
 }
+
 
 ?>
 <!DOCTYPE html>

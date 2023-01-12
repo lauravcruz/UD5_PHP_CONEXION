@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-//Creamos la conexión PDO con los datos de mysql y la BBDD
-$conexionPDO = new PDO('mysql:host=localhost; dbname=lol', 'root', '');
+include("conexionPDO.php");
+
 
 try {
-    $conexionPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     //Comprobamos que no estén los campos vacíos: 
     if (isset($_POST["name"]) != "" && isset($_POST["username"]) != "" && isset($_POST["email"]) != "" && isset($_POST["password"]) != "") {
         $name = $_POST["name"];
@@ -30,4 +28,3 @@ try {
 } catch (PDOException $e) {
     echo 'Falló la conexión: ' . $e->getMessage();
 }
-?>

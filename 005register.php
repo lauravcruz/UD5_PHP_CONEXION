@@ -33,41 +33,46 @@ datos si todo ha ido bien.*/
   <title>005 Register</title>
 </head>
 
-<body>
-  <div class="container gap-5 p-5">
-    <h2 class="text-secondary text-center">Regístrate</h2>
-    <form class="p-5 text-center" method="POST" action="006nuevoUsuario.php">
-      <div>
-        <label for="name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-      </div>
-
-      <div>
-        <label for="username" class="form-label">Username</label>
-        <div class="input-group">
-          <span class="input-group-text" id="inputGroupPrepend">@</span>
-          <input type="text" class="form-control" id="username" name="username" aria-describedby="inputGroupPrepend" required>
+<body class="bg-secondary">
+  <div class="bg-secondary">
+    <div class="text-center p-3"><img src="img/logo.PNG" alt="logo"></div>
+    <div class="container gap-5 w-50 pb-5">
+      <form class="px-5 py-3 text-center position-relative" method="POST" action="006nuevoUsuario.php">
+        <div>
+          <label for="name" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="name" name="name" required>
         </div>
-      </div>
 
-      <div>
-        <label for="password" class="form-label">Password</label>
-        <div class="input-group">
-          <span class="input-group-text" id="inputGroupPrepend"><i class="bi-eye" id="eyePassword" onclick="seePassword()"></i></span>
-          <input type="password" class="form-control" id="password" name="password" required>
+        <div>
+          <label for="username" class="form-label">Username</label>
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="inputGroupPrepend" required>
+          </div>
         </div>
+
+        <div>
+          <label for="password" class="form-label">Password</label>
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend"><i class="bi-eye" id="eyePassword" onclick="seePassword()"></i></span>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+
+        <div>
+          <button class="btn bg-primary" type="submit">Registrar</button>
+        </div>
+      </form>
+      <div class="text-end">
+        <a class="text-primary" href="005register.php">O inicia sesión aquí</a>
       </div>
 
-      <div>
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-      </div>
-
-      <div>
-        <button class="btn bg-primary" type="submit">Submit form</button>
-      </div>
-    </form>
-
+    </div>
   </div>
 </body>
 

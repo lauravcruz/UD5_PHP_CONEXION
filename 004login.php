@@ -1,3 +1,35 @@
+<?php
+include("conexionPDO.php");
+//Comprobamos que no estén los campos vacíos: 
+try {
+  if (isset($_POST["username"])) {
+    $user = $_POST["username"];
+    $pass = $_POST["password"];
+
+    $sql = "SELECT * FROM user WHERE username = ?";
+    $select = $conexionPDO->prepare($sql);
+    $select->bindParam(1, $user);
+    $select->execute();
+
+    $usuario = $select->fetch();
+
+    //Si el usuario existe en la BBDD: 
+    if ($usuario) {
+      //verificamos la contraseña. Verify vuelve a cifrar para comparar 
+      if (password_verify($pass, $usuario['password'])) {
+        echo "<h2 class = 'text-center align-center'>Bienvenid@ $usuario[name]</h2>";
+      } else {
+        echo "<h2>Contraseña incorrecta</h2>";
+      };
+    } else {
+      echo "<h2 class = 'text-center align-center'></h2>El usuario $user no existe</h2>";
+    }
+  }
+} catch (PDOException $e) {
+  echo 'Falló la conexión: ' . $e->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,32 +45,35 @@
   <title>004 Login</title>
 </head>
 
-<body>
-  <div class="container gap-5 p-5">
-    <h2 class="text-secondary text-center">Iniciar Sesión</h2>
-    <form class="p-5 text-center" method="POST" action="007comprobarLogin.php" name = "login">
-      <div>
-        <label for="username" class="form-label">Username</label>
-        <div class="input-group">
-          <span class="input-group-text" id="inputGroupPrepend">@</span>
-          <input type="text" class="form-control" id="username" name="username" aria-describedby="inputGroupPrepend" required>
+<body class="bg-secondary">
+  <div class="bg-secondary">
+    <div class="text-center py-5"><img src="img/logo.PNG" alt="logo"></div>
+    <div class="container gap-5 w-50 pb-5">
+      <form class="px-5 py-3 text-center position-relative" method="POST">
+        <div>
+          <label for="username" class="form-label">Username</label>
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="inputGroupPrepend" required>
+          </div>
         </div>
-      </div>
 
-      <div>
-        <label for="password" class="form-label">Password</label>
-        <div class="input-group">
-          <span class="input-group-text" id="inputGroupPrepend"><i class="bi-eye" id="eyePassword" onclick="seePassword()"></i></span>
-          <input type="password" class="form-control" id="password" name="password" required>
+        <div>
+          <label for="password" class="form-label">Password</label>
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend"><i class="bi-eye" id="eyePassword" onclick="seePassword()"></i></span>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
         </div>
-      </div>
 
-      <div>
-        <button class="btn bg-primary" type="submit">Submit form</button>
+        <div>
+          <button class="btn bg-primary" type="submit">Iniciar Sesión</button>
+        </div>
+      </form>
+
+      <div class="text-end">
+        <a class="text-primary" href="005register.php">O regístrate aquí</a>
       </div>
-    </form>
-    <div class="text-end">
-      <a class="text-decoration-none text-secondary" href="005register.php">O regístrate aquí</a>
     </div>
   </div>
 </body>

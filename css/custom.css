@@ -2,7 +2,7 @@
 
 body {
   font-family: "Righteous", cursive;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
 }
 
 .container div {
@@ -25,6 +25,10 @@ form {
   border: 2px #c49234 solid;
   background-color: rgba(255, 255, 255, 0.253);
   color: #c49234;
+}
+
+label{
+  font-size: 1.2rem;
 }
 
 .btn {
@@ -71,10 +75,11 @@ form {
   transform: skewX(-45deg) scale(1, 1);
 }
 
-td{
-  font-size: 1rem; 
+td {
+  font-size: 1rem;
 }
 
-.error{
+.error {
   box-shadow: red 0px 0px 6px 0px;
 }
+
