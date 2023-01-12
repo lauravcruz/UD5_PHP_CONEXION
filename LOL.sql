@@ -13,8 +13,8 @@ CREATE TABLE champ(
 CREATE TABLE `user`(
 	id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     `name` VARCHAR(100) NOT NULL, 
-    username VARCHAR(100) NOT NULL, 
-    `password` VARCHAR(100) NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL, 
+    `password` VARCHAR(100) UNIQUE NOT NULL,
     email VARCHAR(100) NOT NULL
 ); 
 
@@ -24,9 +24,3 @@ INSERT INTO champ(`name`, rol, difficulty, `description`) VALUES
     ("Teemo", "Tirador", "Moderada", "Sin inmutarse siquiera por los obstáculos más peligrosos y amenazantes, Teemo explora el mundo con un entusiasmo infinito y una alegría desbordante. Con un inquebrantable sentido de la moralidad, este yordle se enorgullece de seguir el Código de los Exploradores de Bandle, a veces con tal afán que no es consciente de las consecuencias de sus acciones. Aunque algunos dicen que la existencia de los Exploradores es cuestionable, una cosa es cierta: la convicción de Teemo no es para tomarla a broma."), 
     ("Jinx", "Tirador", "Moderada", "Jinx, una criminal perturbada e impulsiva de Zaun, vive para sembrar el caos sin importarle las consecuencias. Provoca las explosiones más ruidosas y cegadoras con su arsenal de armas letales para dejar un rastro de terror y destrucción a su paso. Jinx aborrece el aburrimiento y disfruta dejando su peculiar impronta allá donde va."),
     ("Ashe", "Tirador", "Moderada", "Ashe, comandante hija del hielo de la tribu de Avarosa, lidera las hordas más numerosas del norte. Impasible, inteligente e idealista, aunque incómoda en su papel de líder, utiliza los poderes mágicos ancestrales de su linaje para empuñar un arco de Hielo Puro. Su gente cree que Ashe es la heroína mitológica Avarosa reencarnada, y ella espera unificar Freljord una vez más al recuperar sus antiguas tierras tribales.");
-
-INSERT INTO `user`(`name`, username, `password`, email) VALUES 
-("Dani", "danieh", "2023fuckhosteleria", "danieh@gmail.com"),
-("Luis", "luifernan", "noengañoabuelitas", "luisfernan@gmail.com"), 
-("Pedro", "peterPython", "olgadimealgodealemania", "peter@gmail.com");
-
