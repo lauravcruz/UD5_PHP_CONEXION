@@ -28,6 +28,8 @@ esos botones hará la correspondiente función dependiendo del id del campeón s
 
         $champs = mysqli_query($conexion, $consulta);
         if ($champs) {
+            /*imprimimos una tarjeta por cada campeón con un botón de editar (que lleva a editando pasando por GET el id) 
+            y un delete que va asociado a un modal(le pasamos el id en el nombre del modal)*/
             foreach ($champs as $champ) {
                 echo "<div class='card bg-secondary text-white'>
                 <h5 class='card-title text-center text-primary my-2'>$champ[name]</h5>

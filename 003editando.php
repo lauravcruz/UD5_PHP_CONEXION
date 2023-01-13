@@ -16,7 +16,7 @@ include_once("database.php"); ?>
 </head>
 
 <body>
-   
+
     <?php
     /*Al pinchar en editar, el usuario será redirigido al archivo 003editando.php donde mostrará un 
     formulario con los campos rellenos por los datos del campeón seleccionado. Al darle al botón 
@@ -91,11 +91,11 @@ include_once("database.php"); ?>
                     <label for="difficulty" class="form-label">Dificultad: </label>
                     <select id="difficulty" name="difficulty" class="form-select">
                         <option <?php if ($champ["difficulty"] == "Baja")
-                                    echo "selected = 'selected'";; ?>>Baja</option>
+                                    echo "selected"; ?>>Baja</option>
                         <option <?php if ($champ["difficulty"] == "Moderada")
-                                    echo "selected = 'selected'";; ?>>Moderada</option>
+                                    echo "selected"; ?>>Moderada</option>
                         <option <?php if ($champ["difficulty"] == "Alta")
-                                    echo "selected = 'selected'";; ?>>Alta</option>
+                                    echo "selected"; ?>>Alta</option>
                     </select><br>
                 </div>
                 <div class="col-12">
@@ -104,7 +104,7 @@ include_once("database.php"); ?>
                 </div>
 
                 <div class="col-12 text-center">
-                    <button type="submit" class = "btn bg-primary" name="submit">Enviar</button>
+                    <button type="submit" class="btn bg-primary" name="submit">Enviar</button>
                 </div>
             </form>
 

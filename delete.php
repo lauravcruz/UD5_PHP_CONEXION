@@ -5,11 +5,12 @@ include_once("database.php");
 
 $id = $_GET["id"];
 
+//Eliminamos el champ seleccionado y redireccionamos a la página anterior
 $delete = "DELETE FROM champ WHERE id = $id";
 
 if (mysqli_query($conexion, $delete)) {
-    header("Location:/UD5_PHP_Conexion/002campeones.php");
+    header("refresh:0;url=002campeones.php");
 } else {
     echo "Ha habido un error al borrar el item";
-    exit(); 
+    exit();
 }

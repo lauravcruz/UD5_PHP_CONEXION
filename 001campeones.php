@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 include_once("database.php");
 
@@ -8,15 +9,16 @@ y un foreach para cada campeón que tengas albergado en la tabla champ.*/
 
 $consulta = "SELECT * FROM champ";
 
-$champs = mysqli_query($conexion, $consulta); 
+$champs = mysqli_query($conexion, $consulta);
 
-if($champs){
+if ($champs) {
+    //Por cada champ imprimimos una lista con sus datos
     echo "<ul>";
-    foreach($champs as $champ){
+    foreach ($champs as $champ) {
         echo "<li>$champ[id] $champ[name]<ul>
         <li>Rol: $champ[rol]</li>
         <li>Dificultad: $champ[difficulty]</li>
         <li>Descripción: $champ[description]</li></ul><br>";
     }
-    echo "</ul>"; 
+    echo "</ul>";
 }

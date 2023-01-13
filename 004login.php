@@ -1,9 +1,11 @@
 <?php
-declare(strict_types=1); 
-include("conexionPDO.php");
+
+declare(strict_types=1);
+include_once("conexionPDO.php");
 //Comprobamos que no estén los campos vacíos: 
 try {
   if (isset($_POST["username"])) {
+
     $user = $_POST["username"];
     $pass = $_POST["password"];
 

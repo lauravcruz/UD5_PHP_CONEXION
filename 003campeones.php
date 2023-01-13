@@ -19,6 +19,8 @@ de los filtros.*/
 //Si el usuario ha especificado el orden de la tabla, lo insertamos. Sino, por orden del id
 if (isset($_GET["order"]) && isset($_GET["col"])) {
     $consulta = "SELECT * FROM champ ORDER BY $_GET[col] $_GET[order]";
+
+    //Si la columna es rol, como su tipo de dato es enum, al order le metemos CONCAT para ordenarlo alfabéticamente 
     if ($_GET["col"] == "rol") {
         $consulta = "SELECT * FROM champ ORDER BY CONCAT($_GET[col]) $_GET[order]";
     }
@@ -48,6 +50,7 @@ $champs = mysqli_query($conexion, $consulta);
             <table class="table">
                 <thead class="table-dark">
                     <tr class="text-center">
+                        <!--Cada flecha recarga la página pasando por GET la columna a ordenar y si es ASC o DESC-->
                         <th class="col-1">id<a href="003campeones.php?col=id&&order=DESC"><i class="mx-1 bi-caret-down-square-fill text-primary"></i></a>
                             <a href="003campeones.php?col=id&&order=ASC"><i class="bi-caret-up-square-fill"></i></a>
                         </th>

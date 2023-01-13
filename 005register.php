@@ -61,7 +61,7 @@ datos si todo ha ido bien.*/
 
         <div>
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" name="email" required>
+          <input type="email" class="form-control" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
         </div>
 
         <div>
