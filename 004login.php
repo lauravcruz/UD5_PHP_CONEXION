@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1); 
 include("conexionPDO.php");
 //Comprobamos que no estén los campos vacíos: 
 try {
@@ -17,12 +18,13 @@ try {
     if ($usuario) {
       //verificamos la contraseña. Verify vuelve a cifrar para comparar 
       if (password_verify($pass, $usuario['password'])) {
-        echo "<h2 class = 'text-center align-center'>Bienvenid@ $usuario[name]</h2>";
+        echo "<h2 class = 'text-center align-center text-primary pt-5'>Bienvenid@ $usuario[name]</h2>";
+        header("refresh:4;url=002campeones.php");
       } else {
-        echo "<h2>Contraseña incorrecta</h2>";
+        echo "<h2 class = 'text-danger text-center pt-5'>Contraseña incorrecta</h2>";
       };
     } else {
-      echo "<h2 class = 'text-center align-center'></h2>El usuario $user no existe</h2>";
+      echo "<h2 class = 'text-danger text-center pt-5'>El usuario $user no existe</h2>";
     }
   }
 } catch (PDOException $e) {

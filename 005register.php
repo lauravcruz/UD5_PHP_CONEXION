@@ -69,7 +69,7 @@ datos si todo ha ido bien.*/
         </div>
       </form>
       <div class="text-end">
-        <a class="text-primary" href="005register.php">O inicia sesión aquí</a>
+        <a class="text-primary" href="004login.php">O inicia sesión aquí</a>
       </div>
 
     </div>

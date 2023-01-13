@@ -48,19 +48,19 @@ $champs = mysqli_query($conexion, $consulta);
             <table class="table">
                 <thead class="table-dark">
                     <tr class="text-center">
-                        <th class="col-1">id<a href="003campeones.php?col=id&&order=DESC"><i class="bi-caret-down-square-fill"></i></a>
+                        <th class="col-1">id<a href="003campeones.php?col=id&&order=DESC"><i class="mx-1 bi-caret-down-square-fill text-primary"></i></a>
                             <a href="003campeones.php?col=id&&order=ASC"><i class="bi-caret-up-square-fill"></i></a>
                         </th>
-                        <th class="col-1">Nombre<a href="003campeones.php?col=name&&order=DESC"><i class="bi-caret-down-square-fill"></i></a>
+                        <th class="col-1">Nombre<a href="003campeones.php?col=name&&order=DESC"><i class="mx-1 bi-caret-down-square-fill text-primary"></i></a>
                             <a href="003campeones.php?col=name&&order=ASC"><i class="bi-caret-up-square-fill"></i></a>
                         </th>
-                        <th class="col-1">Rol<a href="003campeones.php?col=rol&&order=DESC"><i class="bi-caret-down-square-fill"></i></a>
+                        <th class="col-1">Rol<a href="003campeones.php?col=rol&&order=DESC"><i class="mx-1 bi-caret-down-square-fill text-primary"></i></a>
                             <a href="003campeones.php?col=rol&&order=ASC"><i class="bi-caret-up-square-fill"></i></a>
                         </th>
-                        <th class="col-1">Dificultad<a href="003campeones.php?col=difficulty&&order=DESC"><i class="bi-caret-down-square-fill"></i></a>
+                        <th class="col-1">Dificultad<a href="003campeones.php?col=difficulty&&order=DESC"><i class="mx-1 bi-caret-down-square-fill text-primary"></i></a>
                             <a href="003campeones.php?col=difficulty&&order=ASC"><i class="bi-caret-up-square-fill"></i></a>
                         </th>
-                        <th class="col-3">Descripción<a href="003campeones.php?col=description&&order=DESC"><i class="bi-caret-down-square-fill"></i></a>
+                        <th class="col-3">Descripción<a href="003campeones.php?col=description&&order=DESC"><i class="mx-1 bi-caret-down-square-fill text-primary"></i></a>
                             <a href="003campeones.php?col=description&&order=ASC"><i class="bi-caret-up-square-fill"></i></a>
                         </th>
                     </tr>
